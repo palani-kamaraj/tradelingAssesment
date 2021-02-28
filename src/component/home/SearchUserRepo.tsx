@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Dropdown from '../../common/dropdown';
 import GitSvgIcon from '../../common/Icons/GitSvgIcon';
 import Input from '../../common/input';
-import * as Endpoints from '../../api/Endpoints';
+import useSearchList from '../../utils/hooks/useSearchList';
 import { DropdownOptions } from '../../utils/types/enum';
-import useAPI from '../../utils/hooks/useAPI';
-import { replaceStr } from '../../utils/helper';
-import Results from './Results';
 import './home.scss';
-import useDebounce from '../../utils/hooks/useDebounce';
-
-const APIEndpointMatch = {
-  [DropdownOptions.USERS]: Endpoints.USER_LIST,
-  [DropdownOptions.REPO]: Endpoints.REPO_LIST,
-  [DropdownOptions.ISSUES]: Endpoints.ISSUES_LIST,
-};
 
 const DropdownOpt = [
   { id: DropdownOptions.USERS, label: 'Users' },
@@ -24,23 +14,9 @@ const DropdownOpt = [
 
 const SearchUserRepo: React.FC = (): JSX.Element => {
   const [inputValue, setInputValue] = useState<string>('');
-  const [searchCondition, setSearchCondition] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<DropdownOptions>(DropdownOptions.USERS);
-  const APIURL = replaceStr(APIEndpointMatch[selectedOption as DropdownOptions], 'SEARCHVALUE', inputValue);
-  console.log(APIURL, selectedOption, "APIURL =====")
-  const { execute, response, loading } = useAPI(APIURL);
-  const searchDebounce = useDebounce(inputValue, 500);
-
-  useEffect(() => {
-    console.log(searchDebounce, inputValue, selectedOption, searchDebounce && searchDebounce.length > 3, 'test ===');
-    if (searchDebounce && searchDebounce.length > 3) {
-      execute();
-      setSearchCondition(true);
-    } else {
-      setInputValue('');
-      setSearchCondition(false);
-    }
-  }, [searchDebounce, selectedOption]);
+  const { listItem, loading, response, error, searchCondition, isFetching } = useSearchList(selectedOption, inputValue);
+  console.log(response, "response =====")
 
   const onChangeInput = (e: React.FormEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);

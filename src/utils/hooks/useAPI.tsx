@@ -10,9 +10,10 @@ const useAPI = (url: string, method = APIMethod.GET as APIMethod , body?: any) =
   const execute = async () => {
     setLoading(true);
     if (!url) return;
+    console.log(APIURL + url, "Test =======")
     await fetch(APIURL + url, {
       headers: {
-        'content-type': 'application/json',
+        'content-type': 'application/vnd.github.v3+json',
       },
       method,
       body: JSON.stringify(body),

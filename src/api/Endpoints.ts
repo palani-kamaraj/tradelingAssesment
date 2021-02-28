@@ -1,3 +1,3 @@
-export const REPO_LIST = `/${'SEARCHVALUE'}/repos`;
-export const USER_LIST = `/users/${'SEARCHVALUE'}`;
-export const ISSUES_LIST = `/issues`;
+export const REPO_LIST = `/search/repositories`;
+export const USER_LIST = `/search/users`;
+export const ISSUES_LIST = `/search/issues`;
