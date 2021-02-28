@@ -1,0 +1,43 @@
+@import '../../scss/_colors';
+@import '../../scss/mixins/mixins';
+
+.Dropdown {
+  position: relative;
+  cursor: pointer;
+  .headingWrapper {
+    height: 45px;
+    border: 1px solid $light-grey;
+    border-radius: 2px;
+    padding: 10px 15px;
+    font-weight: 400;
+    @include calculateRem(16);
+  }
+  .downArrow {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $grey;
+    margin: 2px 0 0 10px;
+  }
+  .header {
+    font-weight: 400;
+    line-height: 24px;
+    color: $grey;
+  }
+  .optionsWrapper {
+    position: absolute;
+    min-width: 120px;
+    top: 50px;
+    width: 100%;
+    background: $white;
+    padding: 5px;
+    border: 1px solid $light-grey;
+    border-radius: 2px;
+    & > li {
+      padding: 10px 15px;
+      border-bottom: 1px solid $light-grey;
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+}

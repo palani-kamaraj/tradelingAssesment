@@ -1,0 +1,37 @@
+/**
+ * Add prefix to the css property
+ *
+ * @param {String} $size (media query css property)
+ *
+ * @example
+ *  @include screen('desktop') { //css property }
+ *  @include screen('tablet') { //css property }
+ *  @include screen('mobile') { //css property }
+ *  @include screen('max-width: 500px') { //css property }
+ *
+ */
+ @mixin screen($condition) {
+  $desktop: "(min-width: 1024px)";
+  $tablet: "(min-width: 768px) and (max-width: 1023px)";
+  $mobile: "(max-width: 767px)";
+  @if $condition == desktop {
+    @media only screen and #{$desktop} {
+      @content;
+    }
+  }
+  @else if $condition == tablet {
+    @media only screen and #{$tablet} {
+      @content;
+    }
+  }
+  @else if $condition == mobile {
+    @media only screen and #{$mobile} {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and #{$condition} {
+      @content;
+    }
+  }
+}

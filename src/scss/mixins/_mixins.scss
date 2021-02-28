@@ -1,0 +1,91 @@
+@import './mediaquery.mixins';
+
+/**
+* Convert font size to REM
+*
+* @param {Number} $size 
+* @param {Number} $base 
+*
+* @example
+*  @include calculateReme(12, 10);
+*
+*/
+@mixin calculateRem($size, $base: 16) {
+  font-size: #{$size + 'px'}; // fallback for old browsers
+  font-size: ($size / $base) * 1rem;
+}
+
+/**
+ * Add prefix to the css property
+ *
+ * @param {String} $property (css property)
+ * @param {String} $value (css property value)
+ * @param {String} $vendors (webkit moz ms o)
+ * @param {Boolean} $default (true / false)
+ *
+ * @example
+ *  @include prefix('transform', 'translate', moz webkit);
+ *
+ */
+@mixin prefix($property, $value, $vendors: webkit moz ms o, $default: true) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      #{"-" + $vendor + "-" + $property}: #{$value};
+    }
+  }
+  @if $default {
+    #{$property}: #{$value};
+  }
+}
+
+/**
+ * Vertically center align the div
+ *
+ * @example
+ *   @include center-flex;
+ *
+ * @requires {mixin} prefix
+ *
+ */
+@mixin center-abspos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+}
+
+/**
+ * Vertically center align the div
+ *
+ * @example
+ *  @include center-flex;
+ *
+ *
+ */
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+ * Add placeholder css
+ *
+ * @example
+ *  @include placeholder;
+ *
+ */
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}

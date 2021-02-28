@@ -1,0 +1,25 @@
+.Home {
+  &.center-block {
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+  }
+  .SearchUserRepo {
+    .GitSvgIcon {
+      height: 42px;
+      width: 42px;
+    }
+    .heading {
+      margin-left: 15px;
+    }
+    .field-wrapper {
+      margin: 20px 0;
+      .Input {
+        min-width: 350px;
+      }
+      .Dropdown {
+        margin-left: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import 'mixins/_mixins';
+@import '_colors';
+
+*,
+*:before,
+*:after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Segoe UI, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  line-height: 1.5;
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 40px 0;
+  @include calculateRem(14);
+}
+
+ul > li {
+  list-style-type: none;
+}
+
+h2 {
+  @include calculateRem(24);
+  line-height: 26px;
+  font-weight: bold;
+}
+
+h3 {
+  @include calculateRem(22);
+  line-height: 24px;
+  font-weight: bold;
+}
+
+h6 {
+  @include calculateRem(16);
+  line-height: 18px;
+  font-weight: bold;
+}
+
+p {
+  @include calculateRem(16);
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.grey {
+  color: $grey;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-vh-center {
+  @include center-flex;
+}
