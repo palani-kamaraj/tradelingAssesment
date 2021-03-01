@@ -32,7 +32,5 @@ export const formatDate = (date: any) => {
   let newDate: Date = new Date(date),
     m = newDate.getMonth(),
     currentMonth = months[m];
-
-  console.log(currentMonth + newDate.getDate(), newDate.getFullYear());
   return currentMonth + " " + `${newDate.getDate()}, ${newDate.getFullYear()}`;
 };

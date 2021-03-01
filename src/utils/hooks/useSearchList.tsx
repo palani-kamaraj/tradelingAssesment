@@ -67,7 +67,6 @@ const useSearchList = (
   }, [searchDebounce]);
 
   useEffect(() => {
-    console.log(listItem,"Response ====")
     const loadMoreData = total_count && Math.ceil(total_count/10)*10 >= pageIndex * pageCount;
     if (fetchDebounce) {
       setScrollEnd(false);
