@@ -40,16 +40,18 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 
-### Light Mode Screenshots
+## Light Mode Screenshots
 ![Landing](./screenshots/landing_light.png "Landing")
 ![Users List](./screenshots/users_light.png "Users List")
 ![Repository List](./screenshots/repo_light.png "Repository List")
 ![Issues List](./screenshots/issues_light.png "Issues List")
-![Loader](./screenshots/scroll_loader.png "Loader")
+![Loader](./screenshots/scroll_loader_light.png "Loader")
+![Search Data Not Found](./screenshots/notfound_dark.png "Search Data Not Found")
 
-### Dark Mode Screenshots
+## Dark Mode Screenshots
 ![Landing](./screenshots/landing_dark.png "Landing")
 ![Users List](./screenshots/users_dark.png "Users List")
 ![Repository List](./screenshots/repo_dark.png "Repository List")
 ![Issues List](./screenshots/issues_dark.png "Issues List")
-![Loader](./screenshots/scroll_loader.png "Loader")
+![Loader](./screenshots/scroll_loader_dark.png "Loader")
+![Search Data Not Found](./screenshots/notfound_dark.png "Search Data Not Found")
