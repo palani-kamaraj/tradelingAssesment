@@ -1,0 +1,37 @@
+@import "../../scss/_colors";
+@import "../../scss/mixins/_mixins";
+
+.Card {
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.15), 0 1.5px 2.5px rgba(0, 0, 0, 0.2);
+  border: 1px solid $light-grey;
+  height: 100%;
+}
+
+.RepoCard {
+  .desc,
+  .count-wrapper {
+    margin-top: 20px;
+  }
+  .desc {
+    text-align: center;
+  }
+  .count-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      @include calculateRem(14);
+    }
+  }
+}
+
+.IssuesCard {
+  .title {
+    margin: 10px 0 20px;
+  }
+  .statusIcon {
+    margin-right: 10px;
+  }
+}

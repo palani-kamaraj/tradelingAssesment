@@ -1,10 +1,14 @@
 .Home {
+  position: relative;
   &.center-block {
     display: flex;
     align-items: center;
     min-height: calc(100vh - 80px);
   }
   .SearchUserRepo {
+    .title-wrapper {
+      padding: 0 15px;
+    }
     .GitSvgIcon {
       height: 42px;
       width: 42px;
@@ -21,5 +25,12 @@
         margin-left: 15px;
       }
     }
+  }
+  .scroll-loader {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }

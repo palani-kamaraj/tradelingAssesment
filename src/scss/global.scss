@@ -1,5 +1,5 @@
-@import 'mixins/_mixins';
-@import '_colors';
+@import "mixins/_mixins";
+@import "_colors";
 
 *,
 *:before,
@@ -9,13 +9,29 @@
   box-sizing: border-box;
 }
 
+a {
+  color: $link;
+}
+
 body {
-  font-family: Helvetica, Segoe UI, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-family: Helvetica, Segoe UI, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji;
   line-height: 1.5;
-  max-width: 1270px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 40px 15px;
   @include calculateRem(14);
+  @include screen("desktop") {
+    max-width: 1270px;
+  }
+  @include screen("mobile") {
+    padding-left: 15px;
+    padding-bottom: 15px;
+    max-width: 720px;
+  }
+  @include screen("mobile") {
+    max-width: 540px;
+  }
 }
 
 ul > li {
@@ -41,9 +57,37 @@ h6 {
 }
 
 p {
-  @include calculateRem(16);
-  line-height: 18px;
+  @extend h6;
   font-weight: 500;
+}
+
+a.link-heading {
+  margin-top: 10px;
+  @extend h6;
+}
+
+.success {
+  color: $success;
+}
+
+.error {
+  color: $error;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.word-break {
+  word-break: break-word;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-bold {
+  font-weight: bold;
 }
 
 .grey {
@@ -61,4 +105,49 @@ p {
 
 .flex-vh-center {
   @include center-flex;
+}
+
+/* Grid */
+.container {
+  margin: 0 -15px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.circle-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.col {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 33.33%;
+  position: relative;
+  @include screen("mobile") {
+    flex: 0 0 50%;
+  }
+  @include screen("xsmobile") {
+    flex: 0 0 100%;
+  }
+}
+
+.NotFoundSvgIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  svg {
+    height: 250px;
+  }
+  h3 {
+    margin-top: -45px;
+    text-align: center;
+  }
 }

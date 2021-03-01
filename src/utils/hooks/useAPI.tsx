@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
-import { APIMethod } from '../types/enum';
+import React, { useState } from "react";
+import { APIMethod } from "../types/enum";
 
-const useAPI = (url: string, method = APIMethod.GET as APIMethod , body?: any) => {
-  const APIURL = 'https://api.github.com';
+const useAPI = (
+  url: string,
+  method = APIMethod.GET as APIMethod,
+  body?: any
+) => {
+  const APIURL = "https://api.github.com";
   const [response, setResponse] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>('');
+  const [error, setError] = useState<string>("");
 
   const execute = async () => {
     setLoading(true);
     if (!url) return;
-    console.log(APIURL + url, "Test =======")
     await fetch(APIURL + url, {
       headers: {
-        'content-type': 'application/vnd.github.v3+json',
+        "content-type": "application/vnd.github.v3+json",
       },
       method,
       body: JSON.stringify(body),
@@ -25,7 +28,7 @@ const useAPI = (url: string, method = APIMethod.GET as APIMethod , body?: any) =
       })
       .catch(() => {
         setLoading(false);
-        setError('error');
+        setError("error");
       });
   };
 

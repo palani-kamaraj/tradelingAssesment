@@ -1,0 +1,44 @@
+@import "./../../scss/colors";
+
+.BounceLoader {
+  height: 40px;
+  width: 50px;
+  display: inline-block;
+  position: relative;
+  > div {
+    height: 100%;
+    width: 7px;
+    margin: 0 3px 0 0;
+    background-color: $link;
+    display: inline-block;
+    animation: stretchdelay 1.2s infinite ease-in-out;
+    &.rect {
+      &2 {
+        animation-delay: -1.1s;
+      }
+      &3 {
+        animation-delay: -1s;
+      }
+      &4 {
+        animation-delay: -0.9s;
+      }
+      &5 {
+        animation-delay: -0.8s;
+      }
+    }
+  }
+}
+
+@keyframes stretchdelay {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }
+
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+  }
+}
