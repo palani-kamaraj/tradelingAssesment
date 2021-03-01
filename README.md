@@ -46,7 +46,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ![Repository List](./screenshots/repo_light.png "Repository List")
 ![Issues List](./screenshots/issues_light.png "Issues List")
 ![Loader](./screenshots/scroll_loader_light.png "Loader")
-![Search Data Not Found](./screenshots/notfound_dark.png "Search Data Not Found")
+![Search Data Not Found](./screenshots/notfound_light.png "Search Data Not Found")
 
 ## Dark Mode Screenshots
 ![Landing](./screenshots/landing_dark.png "Landing")
