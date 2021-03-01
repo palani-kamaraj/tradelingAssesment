@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./scss/global.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import DarkMode from "./common/darkMode";
+import "./scss/global.scss";
+import "./scss/darkmode.scss";
 
 ReactDOM.render(
   <React.StrictMode>
+    <DarkMode />
     <App />
   </React.StrictMode>,
   document.getElementById("root")

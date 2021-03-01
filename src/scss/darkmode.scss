@@ -1,0 +1,27 @@
+@import "_colors";
+
+.dark {
+  background-color: $darkModeBlack;
+  color: $white;
+
+  .svgIcon {
+    color: $white;
+  }
+
+  .Dropdown {
+    .headingWrapper {
+      background-color: $white;
+    }
+    .optionsWrapper {
+      background-color: $darkModeBlack;
+    }
+  }
+  .Card {
+    background-color: $gridBlack;
+  }
+  .BounceLoader {
+    > div {
+      background-color: $white;
+    }
+  }
+}

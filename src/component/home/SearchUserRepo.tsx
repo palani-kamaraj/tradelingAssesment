@@ -29,7 +29,7 @@ const SearchUserRepo: React.FC = (): JSX.Element => {
     searchDebounce,
     hasMoreData,
   } = useSearchList(selectedOption, inputValue);
-  const { total_count } = response || {};
+  const { total_count, items } = response || {};
 
   const onChangeInput = (e: React.FormEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
@@ -77,7 +77,7 @@ const SearchUserRepo: React.FC = (): JSX.Element => {
             {listItem && listItem.length > 0 && (
               <Results listItem={listItem} selectedOption={selectedOption} />
             )}
-            {total_count && total_count === 0 ? (
+            {searchDebounce && searchDebounce.length > 3 && items && items.length === 0 ? (
               <NotFoundSvgIcon title={"Not Found"} />
             ) : null}
           </>
